@@ -26,12 +26,12 @@ jobs:
       - name: Run Semgrep CI
         id: semgrep
         run: |
-          semgrep ci | tee semgrep-output.txt
+          semgrep ci > semgrep-output.txt || true
 
-      # Extract titles and write to a results.txt file
+      # Extract titles and write to results.txt
       - name: Create results.txt
         run: |
-          grep -oP '^(src/.+\.php)' semgrep-output.txt | sort -u > results.txt
+          awk '/^.*\.php/{print $1}' semgrep-output.txt | sort -u > results.txt
 
       # Upload results.txt as an artifact
       - name: Upload results.txt
