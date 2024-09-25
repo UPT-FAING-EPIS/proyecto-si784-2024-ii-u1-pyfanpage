@@ -9,6 +9,7 @@ on:
       - .github/workflows/semgrep.yml
   schedule:
     - cron: '2 23 * * *'
+
 jobs:
   semgrep:
     name: semgrep/ci
@@ -20,10 +21,9 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
     steps:
       - uses: actions/checkout@v4
+      
+      # Run Semgrep CI
       - run: semgrep ci
-      - run: semgrep report --output=semgrep-report.html
-      - name: Upload HTML Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: semgrep-report
-          path: semgrep-report.html
+      
+      # Generate HTML report
+      - run: semgrep report --output=semgrep-report.html || echo "No report generated"
