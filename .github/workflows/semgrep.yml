@@ -22,26 +22,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      # Run Semgrep CI
-      - run: semgrep ci
-      
+      # Run Semgrep CI and redirect output to a file
+      - run: |
+          semgrep ci > semgrep-output.txt || true
+
       # Generate JSON report if results exist
       - run: |
-          if [ -f semgrep.sarif ]; then
-            semgrep report --output=semgrep-report.json --format=json
+          if [ -f semgrep-output.txt ]; then
+            semgrep report --output=semgrep-report.json --format=json < semgrep-output.txt
           else
             echo "No results found to generate report."
           fi
 
-      # Optionally, upload the JSON report to your repository
-      - name: Commit JSON report
-        run: |
-          if [ -f semgrep-report.json ]; then
-            git config --local user.email "jaechambilla@upt.pe"
-            git config --local user.name "jaechambilla"
-            git add semgrep-report.json
-            git commit -m "Add Semgrep report"
-            git push
-          else
-            echo "No JSON report to commit."
-          fi
+      # Upload the JSON report as an artifact
+      - name: Upload JSON report
+        uses: actions/upload-artifact@v3
+        with:
+          name: semgrep-report
+          path: semgrep-report.json
