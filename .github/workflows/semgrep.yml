@@ -28,15 +28,16 @@ jobs:
         run: |
           semgrep ci > semgrep-output.txt || true
 
-      # Create a results.txt from the output
-      - name: Create formatted-results.txt
+      # Create an HTML report from the output
+      - name: Create HTML report
         run: |
-          echo "Vulnerabilities found:" > formatted-results.txt
-          cat semgrep-output.txt >> formatted-results.txt
+          echo "<html><body><h1>Vulnerabilities Found</h1><pre>" > semgrep-report.html
+          cat semgrep-output.txt >> semgrep-report.html
+          echo "</pre></body></html>" >> semgrep-report.html
 
-      # Upload the formatted-results.txt as an artifact
-      - name: Upload formatted-results.txt
+      # Upload the HTML report as an artifact
+      - name: Upload semgrep-report.html
         uses: actions/upload-artifact@v3
         with:
           name: semgrep-results
-          path: formatted-results.txt
+          path: semgrep-report.html
