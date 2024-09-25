@@ -28,14 +28,25 @@ jobs:
         run: |
           semgrep ci > semgrep-output.txt || true
 
-      # Extract titles and write to results.txt
+      # Extract details and write to results.txt
       - name: Create results.txt
         run: |
-          awk '/^.*\.php/{print $1}' semgrep-output.txt | sort -u > results.txt
+          awk '/^[^ ]+\.php/{print $0}' semgrep-output.txt | sort -u > results.txt
 
-      # Upload results.txt as an artifact
-      - name: Upload results.txt
+      # Format results with descriptions
+      - name: Format results.txt
+        run: |
+          echo "Vulnerabilities found:" > formatted-results.txt
+          awk '/^[^ ]+\.php/ {
+            split($0, a, " ");
+            path = a[1];
+            title = a[2];
+            print "File: " path "\nTitle: " title "\n" >> formatted-results.txt
+          }' semgrep-output.txt
+
+      # Upload formatted-results.txt as an artifact
+      - name: Upload formatted-results.txt
         uses: actions/upload-artifact@v3
         with:
-          name: semgrep-results
-          path: results.txt
+          name: semgrep-formatted-results
+          path: formatted-results.txt
