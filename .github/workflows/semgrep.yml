@@ -22,6 +22,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Run Semgrep CI and print output
-      - run: |
-          semgrep ci
+      # Run Semgrep CI and capture output
+      - name: Run Semgrep CI
+        id: semgrep
+        run: |
+          semgrep ci | tee semgrep-output.txt
+
+      # Extract titles and write to a results.txt file
+      - name: Create results.txt
+        run: |
+          grep -oP '^(src/.+\.php)' semgrep-output.txt | sort -u > results.txt
+
+      # Upload results.txt as an artifact
+      - name: Upload results.txt
+        uses: actions/upload-artifact@v3
+        with:
+          name: semgrep-results
+          path: results.txt
