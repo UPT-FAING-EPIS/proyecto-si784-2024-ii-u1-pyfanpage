@@ -25,10 +25,23 @@ jobs:
       # Run Semgrep CI
       - run: semgrep ci
       
-      # Generate HTML report if results exist
+      # Generate JSON report if results exist
       - run: |
           if [ -f semgrep.sarif ]; then
-            semgrep report --output=semgrep-report.html
+            semgrep report --output=semgrep-report.json --format=json
           else
             echo "No results found to generate report."
+          fi
+
+      # Optionally, upload the JSON report to your repository
+      - name: Commit JSON report
+        run: |
+          if [ -f semgrep-report.json ]; then
+            git config --local user.email "jaechambilla@upt.pe"
+            git config --local user.name "jaechambilla"
+            git add semgrep-report.json
+            git commit -m "Add Semgrep report"
+            git push
+          else
+            echo "No JSON report to commit."
           fi
