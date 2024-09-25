@@ -28,10 +28,10 @@ jobs:
         run: |
           semgrep ci > semgrep-output.txt || true
 
-      # Extract titles and write to results.txt
+      # Extract titles and paths and write to results.txt
       - name: Create results.txt
         run: |
-          awk '/^.*\.php/{print $1}' semgrep-output.txt | sort -u > results.txt
+          grep -E '^[^ ]+\.php' semgrep-output.txt | awk '{print $1}' | sort -u > results.txt
 
       # Upload results.txt as an artifact
       - name: Upload results.txt
