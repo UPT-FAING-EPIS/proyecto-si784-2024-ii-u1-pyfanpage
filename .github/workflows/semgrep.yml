@@ -25,19 +25,3 @@ jobs:
       # Run Semgrep CI and print output
       - run: |
           semgrep ci
-
-      # Generate report in HTML format
-      - run: |
-          semgrep report --output=semgrep-report.json --format=json
-
-      # Convert JSON report to HTML
-      - run: |
-          echo "<html><head><title>Semgrep Report</title></head><body><h1>Semgrep Vulnerability Report</h1><ul>" > semgrep-report.html
-          jq -r '.[] | "<li><strong>" + .check_id + "</strong>: " + .message + "</li>"' semgrep-report.json >> semgrep-report.html
-          echo "</ul></body></html>" >> semgrep-report.html
-
-      - name: Upload HTML report
-        uses: actions/upload-artifact@v3
-        with:
-          name: semgrep-report
-          path: semgrep-report.html
