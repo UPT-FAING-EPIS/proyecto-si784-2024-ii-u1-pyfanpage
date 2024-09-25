@@ -8,8 +8,8 @@ on:
     paths:
       - .github/workflows/semgrep.yml
   schedule:
+    # random HH:MM to avoid a load spike on GitHub Actions at 00:00
     - cron: '2 23 * * *'
-
 jobs:
   semgrep:
     name: semgrep/ci
@@ -21,32 +21,4 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
     steps:
       - uses: actions/checkout@v4
-
-      # Run Semgrep CI and capture output
-      - name: Run Semgrep CI
-        id: semgrep
-        run: |
-          semgrep ci > semgrep-output.txt || true
-
-      # Create results.txt with vulnerabilities
-      - name: Create results.txt
-        run: |
-          awk '/^[^ ]+\.php/{print}' semgrep-output.txt | sort -u > results.txt
-
-      # Format results with descriptions
-      - name: Format results.txt
-        run: |
-          echo "Vulnerabilities found:" > formatted-results.txt
-          awk '/^[^ ]+\.php/ {
-            file = $1;
-            description = $2;
-            line = $(NF-1);
-            print "File: " file "\nTitle: " description "\nLine: " line "\n" >> formatted-results.txt
-          }' semgrep-output.txt
-
-      # Upload formatted-results.txt as an artifact
-      - name: Upload formatted-results.txt
-        uses: actions/upload-artifact@v3
-        with:
-          name: semgrep-formatted-results
-          path: formatted-results.txt
+      - run: semgrep ci
