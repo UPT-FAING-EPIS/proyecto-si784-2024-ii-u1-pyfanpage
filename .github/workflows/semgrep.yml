@@ -25,5 +25,10 @@ jobs:
       # Run Semgrep CI
       - run: semgrep ci
       
-      # Generate HTML report
-      - run: semgrep report --output=semgrep-report.html || echo "No report generated"
+      # Generate HTML report if results exist
+      - run: |
+          if [ -f semgrep.sarif ]; then
+            semgrep report --output=semgrep-report.html
+          else
+            echo "No results found to generate report."
+          fi
