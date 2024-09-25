@@ -1,63 +1,24 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-# This workflow file requires a free account on Semgrep.dev to
-# manage rules, file ignores, notifications, and more.
-#
-# See https://semgrep.dev/docs
-
 name: Semgrep
-
 on:
+  workflow_dispatch: {}
+  pull_request: {}
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - 13-aplicar-sonarqube
+    paths:
+      - .github/workflows/semgrep.yml
   schedule:
-    - cron: '36 22 * * 3'
-
-permissions:
-  contents: write  # Cambiar a write para permitir el commit
-  security-events: write
-
+    # random HH:MM to avoid a load spike on GitHub Actions at 00:00
+    - cron: '2 23 * * *'
 jobs:
   semgrep:
-    permissions:
-      contents: write # Cambiado a write para permitir el commit
-      security-events: write
-      actions: read
-    name: Scan
-    runs-on: ubuntu-latest
+    name: semgrep/ci
+    runs-on: ubuntu-20.04
+    env:
+      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+    container:
+      image: semgrep/semgrep
+    if: (github.actor != 'dependabot[bot]')
     steps:
-      # Checkout project source
       - uses: actions/checkout@v4
-
-      # Scan code using project's configuration on https://semgrep.dev/manage
-      - uses: returntocorp/semgrep-action@fcd5ab7459e8d91cb1777481980d1b18b4fc6735
-        with:
-          publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
-          generateSarif: "1"
-
-      # Upload SARIF file generated in previous step
-      - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: semgrep.sarif
-        if: always()
-
-      # Commit and push the SARIF file only if there are changes
-      - name: Commit SARIF file if changed
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add semgrep.sarif
-          if ! git diff --cached --quiet; then
-            git commit -m "Add SARIF results from Semgrep scan"
-            git push
-          else
-            echo "No changes to the SARIF file; skipping commit."
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Usa el token de GitHub para autenticación
+      - run: semgrep ci
