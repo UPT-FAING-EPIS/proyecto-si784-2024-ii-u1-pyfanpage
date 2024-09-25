@@ -21,20 +21,15 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
     steps:
       - uses: actions/checkout@v4
-      
-      # Run Semgrep CI and redirect output to a file
-      - run: |
-          semgrep ci > semgrep-output.txt || true
 
-      # Generate JSON report if results exist
+      # Run Semgrep CI and print output
       - run: |
-          if [ -f semgrep-output.txt ]; then
-            semgrep report --output=semgrep-report.json --format=json < semgrep-output.txt
-          else
-            echo "No results found to generate report."
-          fi
+          semgrep ci
 
-      # Upload the JSON report as an artifact
+      # Generate JSON report from the output
+      - run: |
+          semgrep report --output=semgrep-report.json --format=json
+
       - name: Upload JSON report
         uses: actions/upload-artifact@v3
         with:
