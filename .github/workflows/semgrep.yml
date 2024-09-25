@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: semgrep ci
-      - run: semgrep report --output=semgrep-report.html --format=html
+      - run: semgrep report --output=semgrep-report.html
       - name: Upload HTML Report
         uses: actions/upload-artifact@v3
         with:
