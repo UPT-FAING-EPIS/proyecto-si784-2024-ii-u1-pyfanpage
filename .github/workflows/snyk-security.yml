@@ -3,23 +3,17 @@ name: Example workflow using Snyk
 on:
   push:
     branches:
-      - 13-aplicar-sonarqube
+      - 13-aplicar-sonarqube # Reemplaza con tu rama
 
 jobs:
   security:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      
+      - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/php@master
-        continue-on-error: true
+        uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --sarif-file-output=snyk.sarif --json
-      
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: snyk.sarif
+          command: code test
+          args: --sarif-file-output=snyk.sarif
