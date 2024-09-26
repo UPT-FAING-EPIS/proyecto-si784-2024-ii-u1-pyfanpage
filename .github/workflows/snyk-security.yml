@@ -3,17 +3,16 @@ name: Example workflow using Snyk
 on:
   push:
     branches:
-      - 13-aplicar-sonarqube # Reemplaza con tu rama
+      - 13-aplicar-sonarqube # Reemplaza 'tu-rama' con el nombre de tu rama
 
 jobs:
   security:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: composer install
+      - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/php@v1 # Asegúrate de usar el action correcto para PHP
+        uses: snyk/actions/node@master
+        continue-on-error: true # To make sure that SARIF upload gets called
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
