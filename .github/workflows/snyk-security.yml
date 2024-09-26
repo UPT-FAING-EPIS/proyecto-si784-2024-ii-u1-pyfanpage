@@ -3,7 +3,7 @@ name: Example workflow using Snyk
 on:
   push:
     branches:
-      - 13-aplicar-sonarqube # Reemplaza con tu rama
+      - 13-aplicar-sonarqube
 
 jobs:
   security:
@@ -14,7 +14,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1' # Cambia la versión de PHP según tus necesidades
+          php-version: '8.1' 
 
       - name: Install Composer
         run: |
@@ -25,7 +25,7 @@ jobs:
         run: composer install
 
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@v2 # Cambia aquí a una versión disponible
+        uses: snyk/actions/node@v1 
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
