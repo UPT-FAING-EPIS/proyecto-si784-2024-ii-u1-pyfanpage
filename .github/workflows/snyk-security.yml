@@ -1,0 +1,67 @@
+name: Example workflow using Snyk
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: code test
+          args: --sarif-file-output=snyk.sarif
+      
+      - name: Upload Snyk SARIF file as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: snyk-scan-results
+          path: snyk.sarif
+
+      - name: Generate HTML report from SARIF
+        run: |
+          echo "<!DOCTYPE html>
+          <html lang='es'>
+          <head>
+              <meta charset='UTF-8'>
+              <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+              <title>Resultados de Vulnerabilidades</title>
+              <style>
+                  body { font-family: Arial, sans-serif; margin: 20px; }
+                  table { width: 100%; border-collapse: collapse; }
+                  th, td { border: 1px solid #ddd; padding: 8px; }
+                  th { background-color: #f2f2f2; }
+              </style>
+          </head>
+          <body>
+              <h1>Resultados de Vulnerabilidades</h1>
+              <table>
+                  <thead>
+                      <tr>
+                          <th>Regla ID</th>
+                          <th>Nivel</th>
+                          <th>Mensaje</th>
+                          <th>Ubicación</th>
+                      </tr>
+                  </thead>
+                  <tbody>" > snyk_report.html
+
+          # Procesa el archivo SARIF para extraer los resultados
+          cat snyk.sarif | jq -r '.runs[].results[] | "<tr><td>\(.ruleId)</td><td>\(.level)</td><td>\(.message.text)</td><td>\(.locations[0].physicalLocation.artifactLocation.uri) (Línea \(.locations[0].physicalLocation.region.startLine))</td></tr>"' >> snyk_report.html
+
+          echo "</tbody></table></body></html>" >> snyk_report.html
+
+      - name: Upload HTML report as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: snyk-report
+          path: snyk_report.html
+
