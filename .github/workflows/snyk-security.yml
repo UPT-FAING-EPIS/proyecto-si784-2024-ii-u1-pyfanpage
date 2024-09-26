@@ -53,16 +53,15 @@ jobs:
                       </tr>
                   </thead>
                   <tbody>" > snyk_report.html
-          # Aquí puedes procesar el archivo SARIF para extraer la información necesaria
-          # Por ejemplo, usando jq para obtener los resultados
-          cat snyk.sarif | jq -r '.results[] | "<tr><td>\(.ruleId)</td><td>\(.level)</td><td>\(.message.text)</td><td>\(.locations[0].physicalLocation.artifactLocation.uri) (Línea \(.locations[0].physicalLocation.region.startLine))</td></tr>"' >> snyk_report.html
+
+          # Procesa el archivo SARIF para extraer los resultados
+          cat snyk.sarif | jq -r '.runs[].results[] | "<tr><td>\(.ruleId)</td><td>\(.level)</td><td>\(.message.text)</td><td>\(.locations[0].physicalLocation.artifactLocation.uri) (Línea \(.locations[0].physicalLocation.region.startLine))</td></tr>"' >> snyk_report.html
+
           echo "</tbody></table></body></html>" >> snyk_report.html
 
       - name: Upload HTML report as artifact
         uses: actions/upload-artifact@v3
         with:
-          name: snyk-html-report
+          name: snyk-report
           path: snyk_report.html
 
-      - name: Print the Snyk SARIF file
-        run: cat snyk.sarif
