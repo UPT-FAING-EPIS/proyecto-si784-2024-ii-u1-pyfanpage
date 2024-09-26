@@ -15,4 +15,4 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-        comand: code test
+          comand: code test
