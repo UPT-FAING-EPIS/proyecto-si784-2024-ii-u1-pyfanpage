@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         continue-on-error: true
@@ -18,5 +19,12 @@ jobs:
         with:
           command: code test
           args: --sarif-file-output=snyk.sarif
-      - name: Print th snyk sarif file
-        run : cat snyk.sarif
+      
+      - name: Upload Snyk SARIF file as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: snyk-scan-results
+          path: snyk.sarif
+
+      - name: Print the Snyk SARIF file
+        run: cat snyk.sarif
