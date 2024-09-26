@@ -3,7 +3,7 @@ name: CI Workflow
 on:
   push:
     branches:
-      - main  # Cambia la rama aquí
+      - main 
 
 jobs:
   build-and-push:

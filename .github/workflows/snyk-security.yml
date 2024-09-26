@@ -3,7 +3,7 @@ name: Example workflow using Snyk
 on:
   push:
     branches:
-      - 13-aplicar-sonarqube # Reemplaza con tu rama
+      - main
 
 jobs:
   security:
