@@ -25,7 +25,7 @@ jobs:
         run: composer install
 
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/php@v1
+        uses: snyk/actions/node@v2 # Cambia aquí a una versión disponible
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
