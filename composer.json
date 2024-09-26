@@ -1,0 +1,15 @@
+{
+    "name": "asus/proyecto-si784-2024-ii-u1-pyfanpage",
+    "autoload": {
+        "psr-4": {
+            "Asus\\ProyectoSi7842024IiU1Pyfanpage\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "JosueUPT",
+            "email": "jaechambilla@upt.pe"
+        }
+    ],
+    "require": {}
+}
