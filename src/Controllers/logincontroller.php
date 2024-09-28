@@ -1,5 +1,5 @@
 <?php
-include '../config.php'; // Ajusta la ruta según tu estructura
+include './config.php'; // Ajusta la ruta según tu estructura
 session_start();
 
 function authenticateUser($email, $password, $conn) {
