@@ -10,39 +10,56 @@
 
 **Escuela Profesional de Ingeniería de Sistemas**
 
-**Proyecto *{Nombre de Proyecto}***
+**Proyecto *FANPAGE***
 
-Curso: *{Nombre de Asignatura}*
+Curso: *Calidad y pruebas de software*
 
-Docente: *{Nombre de Docente}*
+Docente: *Mg. Patrick Cuadros Quiroga*
 
 Integrantes:
 
-***{Apellidos y nombres del estudiante (código universitario)}***
+***Chambilla Zuñiga, Josue Abraham E.		(2020067575)
+   Llantay Machaca, Marjorie Garce 		    (2020068951)***
 
 **Tacna – Perú**
 
-***{Año}***
+***2024***
 
 **  
 **
 </center>
 <div style="page-break-after: always; visibility: hidden">\pagebreak</div>
 
-Sistema *{Nombre del Sistema}*
+Sistema *FanPage*
 
-Informe de Factibilidad
+Documento Informe de Calidad
 
-Versión *{1.0}*
+Versión *1.0*
 
 |CONTROL DE VERSIONES||||||
 | :-: | :- | :- | :- | :- | :- |
 |Versión|Hecha por|Revisada por|Aprobada por|Fecha|Motivo|
-|1\.0|MPV|ELV|ARV|10/10/2020|Versión Original|
+|1\.0|JACZ - MGLLM|JACZ - MGLLM|JACZ - MGLLM|27/09/2024|Versión Original|
 
 <div style="page-break-after: always; visibility: hidden">\pagebreak</div>
 
 # **INDICE GENERAL**
+
+1. Antecedentes o introducción	
+2. Titulo	
+3. Autores	
+4. Planteamiento del problema	
+4.1 Problema	
+4.2 Justificación	
+4.3 Alcance	
+5. Objetivos	
+5.1 General	
+5.2 Especificos	
+6. Referentes teóricos	
+7. Desarrollo de la propuesta	
+7.1 Tecnología de información	
+7.2 Metodología, técnicas usadas	
+8. Cronograma	
 
 Resumen
 
