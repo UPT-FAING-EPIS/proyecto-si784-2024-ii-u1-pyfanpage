@@ -66,7 +66,10 @@ Versión *1.0*
 8. [Cronograma](#cronograma)
 9. [Conclusión](#conclusión)
 
-Resumen
+## Resumen
+El proyecto FANPAGE tiene como objetivo desarrollar una plataforma interactiva diseñada para mejorar la conexión entre los seguidores y su comunidad favorita. A través de esta página los usuarios podrán acceder a contenido exclusivo, interactuar con publicaciones, compartir opiniones y participar en eventos en tiempo real. La plataforma está diseñada para brindar una experiencia de usuario atractiva y fácil de usar, garantizando que los fanáticos puedan mantenerse al día con las novedades y actividades de su interés.
+
+La arquitectura del sistema está diseñada para ser modular y escalable, permitiendo la integración de diversas funcionalidades. Además, se ha incorporado un sistema de gestión de usuarios que asegura la seguridad y privacidad de los datos, a la vez que permite una experiencia personalizada para cada fanático.
 
 Abstract
 
