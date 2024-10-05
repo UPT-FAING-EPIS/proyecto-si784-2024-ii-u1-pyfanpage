@@ -18,26 +18,33 @@ Docente: *Mg. Patrick Cuadros Quiroga*
 
 Integrantes:
 
-***Chambilla Zuñiga, Josue Abraham E.		(2020067575)
+Chambilla Zuñiga, Josue Abraham E.		(2020067575)
 
-   Llantay Machaca, Marjorie Garce 		    (2020068951)***
+Llantay Machaca, Marjorie Garce 		    (2020068951)
 
-**Tacna – Perú**
+                        **Tacna – Perú**
+                        
+                            ***2024***
 
-***2024***
 
 
 </center>
+
 Sistema *FanPage*
+
 
 Documento Informe de Calidad
 
 Versión *1.0*
 
+
+
 |CONTROL DE VERSIONES||||||
 | :-: | :- | :- | :- | :- | :- |
 |Versión|Hecha por|Revisada por|Aprobada por|Fecha|Motivo|
 |1\.0|JACZ - MGLLM|JACZ - MGLLM|JACZ - MGLLM|27/09/2024|Versión Original|
+
+
 
 <div style="page-break-after: always; visibility: hidden">\pagebreak</div>
 
