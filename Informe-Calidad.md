@@ -48,23 +48,23 @@ Versión *1.0*
 
 <div style="page-break-after: always; visibility: hidden">\pagebreak</div>
 
-# **INDICE GENERAL**
-
-1. Antecedentes o introducción	
-2. Titulo	
-3. Autores	
-4. Planteamiento del problema	
-4.1 Problema	
-4.2 Justificación	
-4.3 Alcance	
-5. Objetivos	
-5.1 General	
-5.2 Especificos	
-6. Referentes teóricos	
-7. Desarrollo de la propuesta	
-7.1 Tecnología de información	
-7.2 Metodología, técnicas usadas	
-8. Cronograma	
+## ÍNDICE
+1. [Antecedentes o introducción](#antecedentes-o-introducción)
+2. [Titulo](#titulo)
+3. [Autores](#autores)
+4. [Planteamiento del problema](#planteamiento-del-problema)
+    - 4.1 [Problema](#problema)
+    - 4.2 [Justificación](#justificación)
+    - 4.3 [Alcance](#alcance)
+5. [Objetivos](#objetivos)
+    - 5.1 [General](#general)
+    - 5.2 [Específicos](#específicos)
+6. [Referentes teóricos](#referentes-teóricos)
+7. [Desarrollo de la propuesta](#desarrollo-de-la-propuesta)
+    - 7.1 [Tecnología de información](#tecnología-de-información)
+    - 7.2 [Metodología técnicas usadas](#metodología-técnicas-usadas)
+8. [Cronograma](#cronograma)
+9. [Conclusión](#conclusión)
 
 Resumen
 
