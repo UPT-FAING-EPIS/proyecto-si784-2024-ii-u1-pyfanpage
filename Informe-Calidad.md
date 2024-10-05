@@ -132,12 +132,16 @@ Desarrollar una plataforma web personalizada que permita a los usuarios adquirir
 ## 6. Referentes teóricos
 - ** Diagrama de Componentes
  ![image](https://github.com/user-attachments/assets/9894244b-de11-4871-8943-473612456ade)
+---
 - ** Diagrama de Arquiitectura
  ![image](https://github.com/user-attachments/assets/9eb51977-a735-4f4f-8b32-053904888ee9)
+---
 - ** Diagrama de Clases
   ![image](https://github.com/user-attachments/assets/c0b49301-e0c0-4b02-a517-288ea72a1299)
+  ---
 - ** Diagrama de Casos de Uso
   ![image](https://github.com/user-attachments/assets/12ad985f-52b7-4e31-be6a-c35ffbd4b968)
+  ---
 - ** Diagrama de Casos de Uso
   ![image](https://github.com/user-attachments/assets/4cfcad7c-9c60-4427-928f-304f60b0904f)
   
