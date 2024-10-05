@@ -25,10 +25,9 @@ Integrantes:
 
 ***2024***
 
-**  
-**
+
 </center>
-<div style="page-break-after: always; visibility: hidden">\pagebreak</div>
+<div style="page-break-after: always; visibility: hidden">\FanPage</div>
 
 Sistema *FanPage*
 
