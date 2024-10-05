@@ -71,38 +71,67 @@ El proyecto FANPAGE tiene como objetivo desarrollar una plataforma interactiva d
 
 La arquitectura del sistema está diseñada para ser modular y escalable, permitiendo la integración de diversas funcionalidades. Además, se ha incorporado un sistema de gestión de usuarios que asegura la seguridad y privacidad de los datos, a la vez que permite una experiencia personalizada para cada fanático.
 
-Abstract
+## Abstract
+The FANPAGE project aims to develop an interactive platform designed to improve the connection between followers and their favorite community. Through this page, users will be able to access exclusive content, interact with publications, share opinions, and participate in events in real time. The platform is designed to provide an engaging and easy-to-use user experience, ensuring that fans can stay up to date with news and activities of interest to them.
 
-[1. Antecedentes o introducción](#_Toc52661346)
+The system architecture is designed to be modular and scalable, allowing the integration of various functionalities. In addition, a user management system has been incorporated which ensures the security and privacy of data while allowing a personalized experience for each fanatic.
 
-[2. Titulo](#_Toc52661347)
+---
 
-[3. Autores](#_Toc52661348)
+## 1. Antecedentes o introducción
+El comercio electrónico permite a los usuarios comprar productos desde cualquier lugar. FANPAGE es una plataforma web que conecta a los seguidores con productos exclusivos, mejorando su experiencia de compra con una interfaz sencilla y un sistema de pagos seguro.
 
-[4. Planteamiento del problema](#_Toc52661349)
+---
 
-[4.1 Problema](#_Toc52661350)
+## 2. Titulo
+FANPAGE
 
-[4.2 Justificación](#_Toc52661351)
+---
 
-[4.3 Alcance](#_Toc52661352)
+## 3. Autores
+- Chambilla Zuñiga Josue Abraham E.
+- Llantay Machaca Marjorie Garce
 
-[5. Objetivos](#_Toc52661356)
+---
 
-[5.1 General](#_Toc52661350)
+## 4. Planteamiento del problema
 
-[5.2 Especificos](#_Toc52661351)
+### 4.1 Problema
+En la actualidad, muchas marcas y comunidades carecen de plataformas especializadas donde puedan vender productos exclusivos a sus seguidores de manera eficiente. Las plataformas de comercio electrónico generalistas no siempre permiten una personalización adecuada o una interacción directa con la comunidad. Esto dificulta la gestión de inventarios, la promoción de productos exclusivos y la fidelización de clientes.
 
-[6. Referentes teóricos](#_Toc52661357)
+### 4.2 Justificación
+FANPAGE busca cubrir esta necesidad creando una plataforma web personalizada para la venta de productos específicos, permitiendo a las marcas ofrecer una experiencia única a sus seguidores. La plataforma proporcionará herramientas para procesar pagos de forma segura y crear un vínculo directo con la comunidad, algo que no se logra fácilmente con plataformas de comercio electrónico genéricas.
 
-[7. Desarrollo de la propuesta](#_Toc52661356)
+### 4.3 Alcance
+El proyecto FANPAGE abarcará la creación de una plataforma web que permita a los usuarios registrar sus cuentas, explorar productos, añadir artículos a su carrito de compras y realizar pagos de forma segura. Desde el lado administrativo, se incluirán funcionalidades para gestionar productos y órdenes de compra. El sistema también ofrecerá integración con diferentes métodos de pago y garantizará la protección de los datos de los usuarios.
 
-[7.1 Tecnología de información ](#_Toc52661350)
+---
 
-[7.2 Metodología, técnicas usadas](#_Toc52661351)
+## 5. Objetivos
 
-[8. Cronograma](#_Toc52661356)
+### 5.1 General
+Desarrollar una plataforma web personalizada que permita a los usuarios adquirir productos exclusivos de una marca o comunidad, facilitando la gestión, los pagos y la interacción directa con los seguidores.
 
+### 5.2 Específicos
+- Crear un sistema de gestión de usuarios que permita registrarse, iniciar sesión y personalizar la experiencia de compra.
+- Desarrollar un panel administrativo para la gestión de inventarios, productos y seguimiento de órdenes.
+- Integrar métodos de pago seguros y confiables que faciliten las transacciones dentro de la plataforma.
+- Garantizar la protección de datos de los usuarios mediante la implementación de buenas prácticas de seguridad.
+
+---
+## 6. Referentes teóricos
+## 7. Desarrollo de la propuesta
+
+### 7.1 Tecnología de información 
+- **GitHub Actions**: Automatiza la construcción y despliegue de tu aplicación.
+- **Docker Hub**: Almacena y distribuye la imagen de tu aplicación.
+- **Base de datos en la nube**: Utiliza un servicio en la nube (AWS RDS, Google Cloud SQL).
+
+---
+
+## 9. Conclusión 
+- **Automatización eficiente**: GitHub Actions permite automatizar la construcción y despliegue continuo de aplicaciones.
+- **Escalabilidad y gestión centralizada**: Una base de datos en la nube asegura alta disponibilidad y seguridad.
 
 <div style="page-break-after: always; visibility: hidden">\pagebreak</div>
 
