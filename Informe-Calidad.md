@@ -22,9 +22,9 @@ Chambilla Zuñiga, Josue Abraham E.		(2020067575)
 
 Llantay Machaca, Marjorie Garce 		    (2020068951)
 
-                        **Tacna – Perú**
+  **Tacna – Perú**
                         
-                            ***2024***
+  ***2024***
 
 
 
@@ -98,7 +98,7 @@ Abstract
 
 [7.2 Metodología, técnicas usadas](#_Toc52661351)
 
-[7. Cronograma](#_Toc52661356)
+[8. Cronograma](#_Toc52661356)
 
 
 <div style="page-break-after: always; visibility: hidden">\pagebreak</div>
