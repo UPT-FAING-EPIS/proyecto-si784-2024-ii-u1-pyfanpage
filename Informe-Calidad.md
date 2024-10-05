@@ -19,6 +19,7 @@ Docente: *Mg. Patrick Cuadros Quiroga*
 Integrantes:
 
 ***Chambilla Zuñiga, Josue Abraham E.		(2020067575)
+
    Llantay Machaca, Marjorie Garce 		    (2020068951)***
 
 **Tacna – Perú**
@@ -27,8 +28,6 @@ Integrantes:
 
 
 </center>
-<div style="page-break-after: always; visibility: hidden">\FanPage</div>
-
 Sistema *FanPage*
 
 Documento Informe de Calidad
